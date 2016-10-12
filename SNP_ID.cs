@@ -29,7 +29,7 @@ namespace OncoSeek.Genomics
                 Sort();
                 string hash_pre = "";
                 foreach (SNP snp in SNPs)
-                    hash_pre += snp.hash + ",";
+                    hash_pre += snp.contig + "|" + snp.position.ToString() + ",";
                 return Convert.ToBase64String(new MD5CryptoServiceProvider().ComputeHash(Encoding.ASCII.GetBytes(hash_pre)));
             }
         }
